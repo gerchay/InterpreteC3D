@@ -1,12 +1,14 @@
-console.log("works");
-/*var fs = require('fs');
-var parser = require('./grammar/grammar');
+import fs from 'fs';
+import Principal from './models/principal';
+
+var parser = require('./models/grammar');
 
 try{
     const entrada = fs.readFileSync('./src/entrada.txt');
-    parser.parse(entrada.toString());
-    console.log("Correcto");
+    let interprete = parser.parse(entrada.toString());
+    interprete.ejecutar();
+    console.log(interprete);
 }
 catch(err){
     console.log(err);
-}*/
+}

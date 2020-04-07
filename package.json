@@ -6,7 +6,7 @@
   "scripts": {
     "ts:node": "ts-node src/",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "jison": "jison ./src/grammar/grammar.jison && mv grammar.js ./src/grammar/",
+    "jison": "jison ./src/models/grammar.jison && mv grammar.js ./src/models/",
     "dev": "nodemon",
     "tsc": "tsc"
   },
@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/erflod5/InterpreteC3D#readme",
   "dependencies": {
+    "@types/node": "^13.11.0",
     "jison": "^0.4.18"
   },
   "devDependencies": {
