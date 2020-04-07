@@ -35,8 +35,7 @@
 "]"						return 'R_BRACKET';
 
 
-"go"					return 'GO';
-"to"                    return "TO";
+"goto"					return 'GO';
 "void"                  return "VOID";
 "if"                    return "IF";
 
@@ -100,13 +99,13 @@ instruccion
 ;
 
 Salto
-	: GO TO ETIQUETA SEMI
+	: GO ETIQUETA SEMI
     {
 	}
 ;
 
 SaltoCondicional
-	: IF LEFT_PARENT Term OptionIf Term RIGHT_PARENT GO TO ETIQUETA SEMI	
+	: IF L_PARENT Term OptionIf Term R_PARENT GO ETIQUETA SEMI	
     {
 	}
 ;
@@ -121,22 +120,22 @@ OptionIf
 ;
 
 Asignacion
-	: Term EQU Term OptionAsig Term SEMI
+	: Term ASG Term OptionAsig Term SEMI
 	{
 	}
-	| Term EQU Term SEMI 
+	| Term ASG Term SEMI 
 	{
 	}
-	| Term EQU STACK L_BRACKET Term R_BRACKET SEMI
+	| Term ASG STACK L_BRACKET Term R_BRACKET SEMI
 	{
 	}
-	| Term EQU HEAP L_BRACKET Term R_BRACKET SEMI
+	| Term ASG HEAP L_BRACKET Term R_BRACKET SEMI
 	{
 	}
-	| STACK L_BRACKET Term R_BRACKET EQU Term SEMI
+	| STACK L_BRACKET Term R_BRACKET ASG Term SEMI
 	{
 	}
-	| HEAP L_BRACKET Term R_BRACKET EQU Term SEMI
+	| HEAP L_BRACKET Term R_BRACKET ASG Term SEMI
 	{
 	}
 ;
@@ -160,19 +159,19 @@ OptionAsig
 ;
 
 LlamadaMetodo
-	: CALL ID LEFT_PARENT RIGHT_PARENT SEMI{
-		$$ = new Call.default($5,interprete.actual++,@1.first_column);
+	: CALL ID L_PARENT R_PARENT SEMI
+	{
 	}
 ;
 
 Print
-	: PRINT LEFT_PARENT VALCHAR COMMA Term RIGHT_PARENT	SEMI
+	: PRINT L_PARENT VALCHAR COMMA Term R_PARENT SEMI
 	{
 	}
-	| PRINT LEFT_PARENT VALDEC COMMA Term RIGHT_PARENT SEMI		
+	| PRINT L_PARENT VALDEC COMMA Term R_PARENT SEMI		
 	{
 	}
-	| PRINT LEFT_PARENT VALNUM COMMA Term RIGHT_PARENT SEMI		
+	| PRINT L_PARENT VALNUM COMMA Term R_PARENT SEMI		
 	{
 	}
 ;

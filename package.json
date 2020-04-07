@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "jison" : "jison ./src/grammar/grammar.jison && mv grammar.js ./src/grammar/"
+    "jison" : "jison ./src/grammar/grammar.jison && mv grammar.js ./src/grammar/",
+    "dev" : "node ./src/"
   },
   "repository": {
     "type": "git",
