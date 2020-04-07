@@ -1,0 +1,23 @@
+{
+  "name": "interpretec3d",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "jison" : "jison ./src/grammar/grammar.jison && mv grammar.js ./src/grammar/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erflod5/InterpreteC3D.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erflod5/InterpreteC3D/issues"
+  },
+  "homepage": "https://github.com/erflod5/InterpreteC3D#readme",
+  "dependencies": {
+    "jison": "^0.4.18"
+  }
+}
