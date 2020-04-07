@@ -66,7 +66,6 @@
 
 
 %{
-
 %}
 
 %start init
@@ -179,18 +178,23 @@ Print
 Term
 	:TEMPORAL
 	{
+
 	}
 	|PTR_HEAP			
 	{
+
 	}
 	|PTR_STACK			
 	{
+
 	}
 	|DECIMAL				
 	{
+
 	}
 	|ENTERO					
 	{
+		
 	}
 ;
 

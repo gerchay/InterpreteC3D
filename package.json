@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "ts:node": "ts-node src/",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "jison" : "jison ./src/grammar/grammar.jison && mv grammar.js ./src/grammar/",
-    "dev" : "node ./src/"
+    "jison": "jison ./src/grammar/grammar.jison && mv grammar.js ./src/grammar/",
+    "dev": "nodemon",
+    "tsc": "tsc"
   },
   "repository": {
     "type": "git",
@@ -20,5 +22,10 @@
   "homepage": "https://github.com/erflod5/InterpreteC3D#readme",
   "dependencies": {
     "jison": "^0.4.18"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "ts-node": "^8.8.2",
+    "typescript": "^3.8.3"
   }
 }

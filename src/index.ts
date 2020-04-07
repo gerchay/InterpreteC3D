@@ -1,4 +1,5 @@
-var fs = require('fs');
+console.log("works");
+/*var fs = require('fs');
 var parser = require('./grammar/grammar');
 
 try{
@@ -8,4 +9,4 @@ try{
 }
 catch(err){
     console.log(err);
-}
+}*/
