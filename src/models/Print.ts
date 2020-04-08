@@ -2,7 +2,7 @@ import {Instruccion} from './Instruccion';
 import Principal from './principal';
 import Literal from './Literal';
 
-export default class Print implements Instruccion{
+export default class Print extends Instruccion{
 
     private tipo : number;
     private value : Literal;
@@ -10,7 +10,8 @@ export default class Print implements Instruccion{
     // tipo 0 -> decimal
     // tipo 1 -> entero
     // tipo 2 -> char
-    constructor(tipo : number, value : Literal){
+    constructor(tipo : number, value : Literal, linea : number){
+        super(linea);
         this.tipo = tipo;
         this.value = value;
     }
@@ -23,6 +24,7 @@ export default class Print implements Instruccion{
         else{
             console.log(String.fromCharCode(value));
         }
+        entorno.actual = this.linea;
     }
 
 }

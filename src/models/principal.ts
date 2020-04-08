@@ -13,6 +13,10 @@ export default class Principal{
 
     public instrucciones: Array<Instruccion>;
 
+    public actual : number;
+
+    public functions : Map<string,number>;
+
     constructor(){
         this.stack = new Array();
         this.heap = new Array();
@@ -22,11 +26,17 @@ export default class Principal{
         this.label = new Array();
         this.anterior = new Array();
         this.instrucciones = new Array();
+        this.actual = 0;
+        this.functions = new Map();
     }
 
     public ejecutar(){
-        this.instrucciones.forEach(instruccion =>{
-            instruccion.ejecutar(this);
-        });
+        this.actual = 0;
+        for(let i = 0; i < this.instrucciones.length; i++){
+            if(this.instrucciones[i] != null){
+                this.instrucciones[i].ejecutar(this);
+                i = this.actual;    
+            }
+        }
     }
 }

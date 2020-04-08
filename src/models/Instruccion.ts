@@ -1,10 +1,12 @@
-import principal from './Principal';
+import Principal from "./principal";
 
 export abstract class Instruccion{
 
-    constructor(){
+    public linea : number;
 
+    constructor(linea : number){
+        this.linea = linea;
     }
 
-    abstract ejecutar(entorno : principal) : void;
+    abstract ejecutar(entorno : Principal) : void;
 }

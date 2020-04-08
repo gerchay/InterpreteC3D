@@ -2,14 +2,15 @@ import { Instruccion } from "./Instruccion";
 import Principal from "./principal";
 import Literal from "./Literal";
 
-export default class Asignacion implements Instruccion {
+export default class Asignacion extends Instruccion {
 
     private tipo: number;
     private left: Literal;
     private right: Literal | null;
     private destino: Literal;
 
-    constructor(tipo: number, left: Literal, right: Literal | null, destino: Literal) {
+    constructor(tipo: number, left: Literal, right: Literal | null, destino: Literal, linea : number) {
+        super(linea);
         this.tipo = tipo;
         this.left = left;
         this.right = right;
@@ -47,6 +48,7 @@ export default class Asignacion implements Instruccion {
                 this.destino.setValue(leftVal % rightVal,entorno);
                 break;
         }
+        entorno.actual = this.linea;
     }
 
 }

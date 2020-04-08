@@ -2,12 +2,13 @@ import { Instruccion } from "./Instruccion";
 import Principal from "./principal";
 import Literal from "./Literal";
 
-export default class AccesoHS implements Instruccion {
+export default class AccesoHS extends Instruccion {
     private term1: Literal;
     private term2: Literal;
     private tipo: number;
 
-    constructor(term1: Literal, term2: Literal, tipo: number) {
+    constructor(term1: Literal, term2: Literal, tipo: number, linea : number) {
+        super(linea);
         this.term1 = term1;
         this.term2 = term2;
         this.tipo = tipo;
@@ -33,5 +34,6 @@ export default class AccesoHS implements Instruccion {
                 entorno.heap[this.term1.getValue(entorno)] = valueLef;
                 break;
         }
+        entorno.actual = this.linea;
     }
 }
