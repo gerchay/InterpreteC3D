@@ -1,4 +1,4 @@
-var ip = 'http://localhost:4000/';
+var ip = 'http://68.183.30.44:4000/';
 
 var consola = CodeMirror.fromTextArea($(".codemirror-textarea")[1],{
     lineNumbers : true,
