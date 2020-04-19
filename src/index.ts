@@ -16,6 +16,7 @@ catch(err){
 import express from 'express';
 import path from 'path';
 import exphbs from 'express-handlebars';
+import c3d from './routes/c3dRoute';
 
 const app = express();
 
@@ -31,6 +32,8 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs');
 
 app.use(express.json({limit:'50mb'}));
+
+app.use('/c3d',c3d);
 
 //Static Files
 app.use(express.static(path.join(__dirname, 'public')));
