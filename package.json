@@ -6,9 +6,11 @@
   "scripts": {
     "ts:node": "ts-node src/",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "jison": "jison ./src/c3d/grammar.jison && mv grammar.js ./src/c3d/",
+    "jison": "jison ./src/c3d/grammar.jison && cp grammar.js ./build/c3d/ && mv grammar.js ./src/c3d/",
     "dev": "nodemon",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "build": "tsc && cp ./src/views ./build/ -r && cp ./src/public ./build/ -r",
+    "prod": "node ./build/"
   },
   "repository": {
     "type": "git",
@@ -26,7 +28,8 @@
     "@types/node": "^13.11.0",
     "express": "^4.17.1",
     "express-handlebars": "^4.0.3",
-    "jison": "^0.4.18"
+    "jison": "^0.4.18",
+    "pm2": "^4.3.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.2",
