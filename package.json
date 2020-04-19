@@ -6,7 +6,7 @@
   "scripts": {
     "ts:node": "ts-node src/",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "jison": "jison ./src/models/grammar.jison && mv grammar.js ./src/models/",
+    "jison": "jison ./src/c3d/grammar.jison && mv grammar.js ./src/c3d/",
     "dev": "nodemon",
     "tsc": "tsc"
   },

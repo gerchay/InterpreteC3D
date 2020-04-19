@@ -49,4 +49,14 @@ export default class Principal{
         }
         return report;
     }
+
+    public clear(){
+        this.stack = new Array();
+        this.heap = new Array();
+        this.p = 0;
+        this.h = 0;
+        this.temporal = new Array();
+        this.actual = 0;
+        this.cadena = new Array();
+    }
 }

@@ -114,6 +114,9 @@ case 3:
 			}
 			this.$[$$[$0].end] = new EndMetodo.default($$[$0].end);
 		}
+		else{
+			interprete.clear();
+		}
 	
 break;
 case 4: case 5: case 6: case 8:
