@@ -10,10 +10,23 @@ class C3dController{
     public exec(req:Request, res:Response){
         var parser = require('../c3d/grammar');
         const {text} = req.body;
-        let interprete = parser.parse(text);
-        interprete.clear();
-        interprete.ejecutar();
-        res.json(interprete.report());
+        try{
+            let interprete = parser.parse(text);
+            interprete.clear();
+            interprete.ejecutar();
+            res.json(interprete.report());
+    
+        }
+        catch(err){
+            res.json({
+                salida : "Error de sintaxis mula",
+                temps : [],
+                heap : [],
+                stack : [],
+                h : 0,
+                p : 0
+            });
+        }
     }
 }
 
