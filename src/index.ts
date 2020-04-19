@@ -1,18 +1,3 @@
-/*import fs from 'fs';
-import Principal from './models/principal';
-
-var parser = require('./models/grammar');
-
-try{
-    const entrada = fs.readFileSync('./src/entrada.txt');
-    let interprete = parser.parse(entrada.toString());
-    interprete.ejecutar();
-    //console.log(interprete);
-}
-catch(err){
-    console.log(err);
-}*/
-
 import express from 'express';
 import path from 'path';
 import exphbs from 'express-handlebars';
@@ -20,7 +5,6 @@ import c3d from './routes/c3dRoute';
 
 const app = express();
 
-app.set('port',process.env.PORT || 3000);
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', exphbs({
@@ -32,6 +16,7 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs');
 
 app.use(express.json({limit:'50mb'}));
+app.use(express.urlencoded({limit:'50mb', extended: false}));
 
 app.use('/c3d',c3d);
 

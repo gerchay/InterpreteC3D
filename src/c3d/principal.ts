@@ -5,18 +5,12 @@ export default class Principal{
     public heap: number[];
     public p : number;
     public h : number;
-    
     public temporal: number[];
     public label : number[];
-
     public anterior:number[];
-
     public instrucciones: Array<Instruccion>;
-
     public actual : number;
-
     public functions : Map<string,number>;
-
     public cadena : any[];
 
     constructor(){
@@ -42,5 +36,17 @@ export default class Principal{
             }
         }
         console.log(this.cadena.join(""));
+    }
+
+    public report(){
+        let report = {
+            salida : this.cadena.join(""),
+            temps : this.temporal,
+            heap : this.heap,
+            stack : this.stack,
+            h : this.h,
+            p : this.p
+        }
+        return report;
     }
 }
