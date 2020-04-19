@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OLC2</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../codemirror/lib/codemirror.css" />
+    <link rel="stylesheet" href="../../codemirror/theme/dracula.css" />
+
+    <script type="text/javascript" src="../../codemirror/lib/codemirror.js"></script>
+    <script type="text/javascript" src="../../codemirror/addon/mode/simple.js"></script>
+    <script type="text/javascript" src="../../modo4d.js"></script>
+    <link rel="stylesheet" href="../../css/c4d.css">
+</head>
+
+<body>
+    {{>nav}}
+    <div class="container-fluid">
+        <div class="row">
+            {{{body}}}
+        </div>
+    </div>
+    <script type="module" src="../../c4d.js"></script>
+</body>
+
+</html>
