@@ -1,0 +1,80 @@
+/*************STRING1****************/
+program string1;
+var x : String = "hola mundo";
+begin
+	writeln(x);
+end.
+/*****************************/
+
+
+/*************STRING2***************/
+program string2;
+var
+	cadena : String = "hola mundo";
+begin
+	cadena := "Nueva cadena";
+	cadena := "Otra cadena";
+	cadena := cadena + cadena;
+	writeln(cadena);
+end.
+/*****************************/
+
+
+
+/*************FUNCIONES2****************/
+program func2;
+function fun1(x : integer) : integer;
+begin
+	fun1 := x;
+end;
+begin
+	writeln(fun1(30));
+end.
+/*****************************/
+
+
+/*************FUNCIONES1****************/
+program func1;
+function fun1() : integer;
+var 
+	val1 : integer = 10;
+    val2 : integer = 20;
+begin
+	fun1 := val1 + val2 + 15;
+end;
+begin
+	writeln(fun1());
+end.
+/*****************************/
+
+
+/*************STRUCT***************/
+program struct;
+type
+	Estudiante = Record
+		index : integer;
+		mayor : boolean;
+	end;
+var
+	erik : Estudiante;
+begin
+	erik := malloc(sizeof(Estudiante));
+	erik.index := 5;
+	erik.mayor := true;
+end.
+/*****************************/
+
+
+/************Arreglos*****************/
+program arreglos;
+function fun1() : integer;
+var 
+	val1 : integer = 10;
+    val2 : integer = 20;
+begin
+	fun1 := val1 + val2 + 15;
+end;
+begin
+	writeln(fun1());
+end.
+/*****************************/

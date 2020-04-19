@@ -1,0 +1,27 @@
+call MAIN();
+void zzz_fun1_INTEGER(){
+	Stack[p] = -1; //El valor de retorno por defecto es -1
+	T1 = p + 0;
+	Stack[T1] = 0;
+	T0 = p + 2;
+	T1 = Stack[T0];
+	T0 = p + 0;
+	Stack[T0] = T1;
+	L0:
+}
+void MAIN(){
+	Stack[0] = 0;
+	Stack[1] = 0;
+	T0 = p + 3;
+	Stack[T0] = p;
+	T0 = T0 + 1;
+	Stack[T0] = 30;
+	T0 = T0 + 1;
+	p = p + 2;
+	call zzz_fun1_INTEGER();
+	T1 = Stack[p];
+	p = p - 2;
+	print(%e,T1);
+	print(%c,10);
+	L1:
+}

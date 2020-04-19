@@ -42,7 +42,24 @@ export default class Asignacion extends Instruccion {
                 this.destino.setValue(leftVal * rightVal,entorno);
                 break;
             case 4:
-                this.destino.setValue(leftVal / rightVal,entorno);
+                if(rightVal == 0){
+                    entorno.cadena.push('N');
+                    entorno.cadena.push('o');
+                    entorno.cadena.push(' ');
+                    entorno.cadena.push('s');
+                    entorno.cadena.push('e');
+                    entorno.cadena.push('a');
+                    entorno.cadena.push('s');
+                    entorno.cadena.push(' ');
+                    entorno.cadena.push('m');
+                    entorno.cadena.push('u');
+                    entorno.cadena.push('l');
+                    entorno.cadena.push('a');
+                    this.destino.setValue(0,entorno);
+                }
+                else{
+                    this.destino.setValue(leftVal / rightVal,entorno);
+                }
                 break;
             default:
                 this.destino.setValue(leftVal % rightVal,entorno);

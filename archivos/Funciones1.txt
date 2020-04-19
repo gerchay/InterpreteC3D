@@ -1,0 +1,35 @@
+call MAIN();
+void zzz_fun1_vacio(){
+	Stack[p] = -1;
+	T0 = p + 0;
+	Stack[T0] = 0;
+	T1 = p + 2;
+	Stack[T1] = 10;
+	T2 = p + 3;
+	Stack[T2] = 20;
+	T0 = p + 2;
+	T1 = Stack[T0];
+	T2 = p + 3;
+	T0 = Stack[T2];
+	T2 = T1 + T0;
+	T1 = T2 + 15;
+	T0 = p + 0;
+	Stack[T0] = T1;
+	L0:
+}
+void MAIN(){
+	Stack[0] = 0;
+	Stack[1] = 0;
+	T2 = p + 3;
+	T0 = p + 1;
+	T1 = Stack[T0];
+	Stack[T2] = T1;
+	T2 = T2 + 1;
+	p = p + 2;
+	call zzz_fun1_vacio();
+	T0 = Stack[p];
+	p = p - 2;
+	print(%e,T0);
+	print(%c,10);
+	L1:
+}
