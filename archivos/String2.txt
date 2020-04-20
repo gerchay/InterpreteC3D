@@ -1,31 +1,33 @@
 call MAIN();
 void MAIN(){
-	Stack[0] = 0;
-	Stack[1] = 0;
+	Stack[0] = 0; //Valor de retorno
+	Stack[1] = 0; //Entorno actual
+
 	T0 = h;
-	Heap[h] = 104;
+	Heap[h] = 104;//h
 	h = h + 1;
-	Heap[h] = 111;
+	Heap[h] = 111;//o 
 	h = h + 1;
-	Heap[h] = 108;
+	Heap[h] = 108;//l
 	h = h + 1;
-	Heap[h] = 97;
+	Heap[h] = 97;//a
 	h = h + 1;
-	Heap[h] = 32;
+	Heap[h] = 32;// 
 	h = h + 1;
-	Heap[h] = 109;
+	Heap[h] = 109;//m
 	h = h + 1;
-	Heap[h] = 117;
+	Heap[h] = 117;//u
 	h = h + 1;
-	Heap[h] = 110;
+	Heap[h] = 110;//n
 	h = h + 1;
-	Heap[h] = 100;
+	Heap[h] = 100;//d
 	h = h + 1;
-	Heap[h] = 111;
+	Heap[h] = 111;//o
 	h = h + 1;
-	Heap[h] = 36;
+	Heap[h] = 36;//$
 	h = h + 1;
 	Stack[2] = T0;
+
 	T0 = h;
 	Heap[h] = 78;
 	h = h + 1;
@@ -54,6 +56,7 @@ void MAIN(){
 	Heap[h] = 36;
 	h = h + 1;
 	Stack[2] = T0;
+	
 	T0 = h;
 	Heap[h] = 79;
 	h = h + 1;
@@ -80,18 +83,23 @@ void MAIN(){
 	Heap[h] = 36;
 	h = h + 1;
 	Stack[2] = T0;
-	T0 = Stack[2];
-	T1 = Stack[2];
-	T3 = p + 3;
+	
+	T0 = Stack[2]; //Variable cadena
+	T1 = Stack[2]; //Variable cadena
+	T3 = p + 3; //Cambio virtual de ambito
+
 	T4 = T3 + 1;
-	Stack[T4] = T0;
+	Stack[T4] = T0; //Pasar por parametro primer variable
+
 	T4 = T3 + 2;
-	Stack[T4] = T1;
-	p = p + 3;
+	Stack[T4] = T1; //Pasar por parametro segunda variable
+
+	p = p + 3; //Cambio real de ambito
 	call Native_Concat_String_String();
-	T5 = p + 0;
-	T2 = Stack[T5];
-	p = p - 3;
+	T5 = p + 0; //Posicion del return
+	T2 = Stack[T5]; //Asignando el return a la variable 
+	p = p - 3; //Regresando al ambito anterior
+
 	Stack[2] = T2;
 	T0 = Stack[2];
 	T1 = p + 3;

@@ -38,34 +38,6 @@ void MAIN(){
 	print(%c,10); //Salto de linea
 	L0:
 }
-void Native_Concat_String_String(){
-	T2 = h;
-	T3 = p + 1;
-	T4 = Stack[T3];
-	T5 = Heap[T4];
-	L1:
-	if (T5 == 36) goto L2;
-	Heap[h] = T5;
-	h = h + 1;
-	T4 = T4 + 1;
-	T5 = Heap[T4];
-	goto L1;
-	L2:
-	T3 = p + 2;
-	T4 = Stack[T3];
-	T5 = Heap[T4];
-	L3:
-	if (T5 == 36) goto L4;
-	Heap[h] = T5;
-	h = h + 1;
-	T4 = T4 + 1;
-	T5 = Heap[T4];
-	goto L3;
-	L4:
-	Heap[h] = 36;
-	h = h + 1;
-	Stack[p] = T2;
-}
 void Native_PrintString(){
 	T2 = p + 0;
 	T3 = Stack[T2];
@@ -83,16 +55,4 @@ void Native_PrintString(){
 	T4 = Heap[T3];
 	goto L18;
 	L19:
-}
-void Native_Malloc(){
-	T1 = p + 2;
-	T2 = Stack[T1];
-	T1 = h;
-	L62:
-	if (T2 <= 0) goto L63;
-	h = h + 1;
-	T2 = T2 - 1;
-	goto L62;
-	L63:
-	Stack[p] = T1;
 }

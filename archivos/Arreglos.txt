@@ -2,53 +2,68 @@ call MAIN();
 void MAIN(){
 	Stack[0] = 0;
 	Stack[1] = 0;
+
+	//ASIGNACION DE ARREGLO
 	T0 = h;
-	Heap[h] = 0;
+	Heap[h] = 0; //Indice minimo
 	h = h + 1;
-	Heap[h] = 6;
+
+	Heap[h] = 6; //Indice maximo
 	h = h + 1;
+
 	T1 = 6 - 0;
-	Heap[h] = T1;
+	Heap[h] = T1; //Size del arreglo
 	h = h + 1;
-	T2 = h;
-	h = h + T1;
+
+	T2 = h; //Temporal que guarda donde inicia el arreglo
+	h = h + T1; //Reservo el espacio del arreglo
+
 	L0:
-	if (T1 <= 0) goto L1;
-	Heap[T2] = 0;
-	T2 = T2 + 1;
-	T1 = T1 - 1;
+	if (T1 <= 0) goto L1; //Si el size es <=0, termino de llenar
+	Heap[T2] = 0; //Asigno valor por defecto de Integer
+	T2 = T2 + 1; //Aumento el puntero temporal del heap
+	T1 = T1 - 1; //Decremento el numero de posiciones faltantes
 	goto L0;
 	L1:
-	Stack[2] = T0;
-	T0 = Stack[2];
+	Stack[2] = T0; //Asgino la referencia al heap
+	//FIN ASIGNACION
+
+	T0 = Stack[2]; //Referencia al heap del arreglo
 	T1 = T0;
-	T2 = Heap[T0];
-	T3 = 0 - T2;
-	if (T3 >= 0) goto L3;
+	T2 = Heap[T0]; //Indice minimo
+	T3 = 0 - T2; //Poscion 0 a buscar - el indice minimo
+
+	if (T3 >= 0) goto L3; //Si el resultado es negativo, el indice es erroneo
 	print(%c,69);
 	print(%c,82);
 	print(%c,32);
 	print(%d,101);
 	print(%c,10);
 	goto L2;
+
 	L3:
 	T2 = T1 + 1;
-	T5 = Heap[T2];
-	if (0 < T5) goto L4;
+	T5 = Heap[T2]; //Indice maximo
+	if (0 < T5) goto L4; //Si el indice a acceder es menor al indice maximo, continua
 	print(%c,69);
 	print(%c,82);
 	print(%c,32);
 	print(%d,101);
 	print(%c,10);
 	goto L2;
+
 	L4:
-	T4 = T3 + 3;
-	T1 = T4 + T1;
-	Heap[T1] = 1;
-	T2 = Stack[2];
+	T4 = T3 + 3; //Poscion relativa
+	T1 = T4 + T1; //Poscion absoluta
+	Heap[T1] = 1; //Asignando valor 1 a la posicion 0
+
+
+
+	T2 = Stack[2]; //Referencia al heap del arreglo
 	T3 = T2;
-	T4 = Heap[T2];
+	T4 = Heap[T2]; //inicia minimo
 	T0 = 1 - T4;
+
 	if (T0 >= 0) goto L5;
 	print(%c,69);
 	print(%c,82);
@@ -56,6 +71,7 @@ void MAIN(){
 	print(%d,101);
 	print(%c,10);
 	goto L2;
+
 	L5:
 	T4 = T3 + 1;
 	T1 = Heap[T4];
@@ -66,14 +82,19 @@ void MAIN(){
 	print(%d,101);
 	print(%c,10);
 	goto L2;
+
 	L6:
 	T5 = T0 + 3;
 	T3 = T5 + T3;
 	Heap[T3] = 3;
+
+
+
 	T4 = Stack[2];
 	T0 = T4;
 	T5 = Heap[T4];
 	T2 = 2 - T5;
+
 	if (T2 >= 0) goto L7;
 	print(%c,69);
 	print(%c,82);
@@ -81,6 +102,7 @@ void MAIN(){
 	print(%d,101);
 	print(%c,10);
 	goto L2;
+
 	L7:
 	T5 = T0 + 1;
 	T3 = Heap[T5];
@@ -91,14 +113,18 @@ void MAIN(){
 	print(%d,101);
 	print(%c,10);
 	goto L2;
+
 	L8:
 	T1 = T2 + 3;
 	T0 = T1 + T0;
 	Heap[T0] = 4;
+
+
 	T5 = Stack[2];
 	T2 = T5;
 	T1 = Heap[T5];
 	T4 = 3 - T1;
+
 	if (T4 >= 0) goto L9;
 	print(%c,69);
 	print(%c,82);
@@ -106,6 +132,7 @@ void MAIN(){
 	print(%d,101);
 	print(%c,10);
 	goto L2;
+
 	L9:
 	T1 = T2 + 1;
 	T0 = Heap[T1];
@@ -116,14 +143,18 @@ void MAIN(){
 	print(%d,101);
 	print(%c,10);
 	goto L2;
+
 	L10:
 	T3 = T4 + 3;
 	T2 = T3 + T2;
 	Heap[T2] = 14;
+
+
 	T1 = Stack[2];
 	T4 = T1;
 	T3 = Heap[T1];
 	T5 = 4 - T3;
+
 	if (T5 >= 0) goto L11;
 	print(%c,69);
 	print(%c,82);
@@ -131,6 +162,7 @@ void MAIN(){
 	print(%d,101);
 	print(%c,10);
 	goto L2;
+
 	L11:
 	T3 = T4 + 1;
 	T2 = Heap[T3];
@@ -141,14 +173,18 @@ void MAIN(){
 	print(%d,101);
 	print(%c,10);
 	goto L2;
+
 	L12:
 	T0 = T5 + 3;
 	T4 = T0 + T4;
 	Heap[T4] = 41;
+
+
 	T3 = Stack[2];
 	T5 = T3;
 	T0 = Heap[T3];
 	T1 = 5 - T0;
+
 	if (T1 >= 0) goto L13;
 	print(%c,69);
 	print(%c,82);
@@ -156,6 +192,7 @@ void MAIN(){
 	print(%d,101);
 	print(%c,10);
 	goto L2;
+
 	L13:
 	T0 = T5 + 1;
 	T4 = Heap[T0];
@@ -166,14 +203,18 @@ void MAIN(){
 	print(%d,101);
 	print(%c,10);
 	goto L2;
+
 	L14:
 	T2 = T1 + 3;
 	T5 = T2 + T5;
 	Heap[T5] = 40;
+
+
 	T0 = Stack[2];
 	T1 = T0;
 	T2 = Heap[T0];
 	T3 = 0 - T2;
+
 	if (T3 >= 0) goto L15;
 	print(%c,69);
 	print(%c,82);
@@ -181,6 +222,7 @@ void MAIN(){
 	print(%d,101);
 	print(%c,10);
 	goto L2;
+
 	L15:
 	T2 = T1 + 1;
 	T5 = Heap[T2];
@@ -191,16 +233,20 @@ void MAIN(){
 	print(%d,101);
 	print(%c,10);
 	goto L2;
+
 	L16:
 	T4 = T3 + 3;
 	T4 = T4 + T1;
-	T1 = Heap[T4];
+	T1 = Heap[T4]; //Valor del arreglo en la posicion 0
 	print(%e,T1);
 	print(%c,10);
+
+
 	T0 = Stack[2];
 	T2 = T0;
 	T3 = Heap[T0];
 	T5 = 3 - T3;
+
 	if (T5 >= 0) goto L17;
 	print(%c,69);
 	print(%c,82);
@@ -208,6 +254,7 @@ void MAIN(){
 	print(%d,101);
 	print(%c,10);
 	goto L2;
+
 	L17:
 	T3 = T2 + 1;
 	T4 = Heap[T3];
@@ -218,10 +265,11 @@ void MAIN(){
 	print(%d,101);
 	print(%c,10);
 	goto L2;
+
 	L18:
 	T1 = T5 + 3;
 	T1 = T1 + T2;
-	T2 = Heap[T1];
+	T2 = Heap[T1]; //Valor del arreglo en la posicion 3
 	print(%e,T2);
 	print(%c,10);
 	L2:

@@ -19,20 +19,6 @@ begin
 end.
 /*****************************/
 
-
-
-/*************FUNCIONES2****************/
-program func2;
-function fun1(x : integer) : integer;
-begin
-	fun1 := x;
-end;
-begin
-	writeln(fun1(30));
-end.
-/*****************************/
-
-
 /*************FUNCIONES1****************/
 program func1;
 function fun1() : integer;
@@ -46,6 +32,19 @@ begin
 	writeln(fun1());
 end.
 /*****************************/
+
+
+/*************FUNCIONES2****************/
+program func2;
+function fun1(x : integer) : integer;
+begin
+	fun1 := x;
+end;
+begin
+	writeln(fun1(30));
+end.
+/*****************************/
+
 
 
 /*************STRUCT***************/
@@ -67,14 +66,17 @@ end.
 
 /************Arreglos*****************/
 program arreglos;
-function fun1() : integer;
-var 
-	val1 : integer = 10;
-    val2 : integer = 20;
+var
+	v : array[0 .. 6] of integer;
 begin
-	fun1 := val1 + val2 + 15;
-end;
-begin
-	writeln(fun1());
+	v[0] := 1;
+	v[1] := 3;
+	v[2] := 4;
+	v[3] := 14;
+	v[4] := 41;
+	v[5] := 40;
+
+	writeln(v[0]);
+	writeln(v[3]);
 end.
 /*****************************/

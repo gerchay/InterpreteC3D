@@ -1,35 +1,45 @@
 call MAIN();
 void zzz_fun1_vacio(){
-	Stack[p] = -1;
+	Stack[p] = -1; //Retorno por defecto -1
+
 	T0 = p + 0;
-	Stack[T0] = 0;
+	Stack[T0] = 0; //Valor por defecto de entero
+
 	T1 = p + 2;
-	Stack[T1] = 10;
+	Stack[T1] = 10; //Asignando val1
+	
 	T2 = p + 3;
-	Stack[T2] = 20;
+	Stack[T2] = 20; //Asignando val2
+	
 	T0 = p + 2;
-	T1 = Stack[T0];
+	T1 = Stack[T0]; //Buscar el valor de val1
+
 	T2 = p + 3;
-	T0 = Stack[T2];
-	T2 = T1 + T0;
+	T0 = Stack[T2]; //Buscar el valor de val2
+	
+	T2 = T1 + T0; //val1 + val2
 	T1 = T2 + 15;
-	T0 = p + 0;
-	Stack[T0] = T1;
+	T0 = p + 0; //Valor de retorno
+	Stack[T0] = T1; //Asignar el valor de retorno
 	L0:
 }
 void MAIN(){
 	Stack[0] = 0;
 	Stack[1] = 0;
-	T2 = p + 3;
+
+	T2 = p + 3; //Cambio virtual a espacio de asignacion
+
 	T0 = p + 1;
-	T1 = Stack[T0];
-	Stack[T2] = T1;
-	T2 = T2 + 1;
-	p = p + 2;
-	call zzz_fun1_vacio();
-	T0 = Stack[p];
-	p = p - 2;
-	print(%e,T0);
+	T1 = Stack[T0]; //Buscando el this
+	Stack[T2] = T1; //Pasando el this
+	T2 = T2 + 1; //Incrementa el puntero virtual
+	
+	p = p + 2;//Cambio real
+	call zzz_fun1_vacio(); //Llamada a funcion
+	T0 = Stack[p]; //Valor de retorno
+	p = p - 2; //Regresando al ambito anterior
+	
+	print(%e,T0); //Imprimir el retorno
 	print(%c,10);
 	L1:
 }
