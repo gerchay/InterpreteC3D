@@ -20,6 +20,10 @@ app.use(express.urlencoded({limit:'50mb', extended: false}));
 
 app.use('/c3d',c3d);
 
+
+app.get('**',(req,res)=>{
+    res.send("Aqui no hay nada :(");
+})
 //Static Files
 app.use(express.static(path.join(__dirname, 'public')));
 
