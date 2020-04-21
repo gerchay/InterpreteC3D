@@ -1,0 +1,235 @@
+call MAIN();
+void MAIN(){
+	Stack[0] = 0;
+	Stack[1] = 0;
+	Stack[2] = -1; //Valor por defecto es nil -> -1
+
+	T0 = 2; //Size del struct
+	T1 = p + 4; //Cambio virtual
+
+	T2 = p + 1;
+	T3 = Stack[T2]; //this
+
+	Stack[T1] = T3; //Pasando this
+	T1 = T1 + 1; //Aumenta el puntero
+
+	Stack[T1] = T0; //Pasando el size del struct
+	T1 = T1 + 1;
+
+	p = p + 3; //Cambio real de ambito
+	call Native_Malloc();
+	T2 = Stack[p]; //Valor de retorno, que es la referencia al heap
+	p = p - 3; //Retornando al entorno anterior
+
+	Stack[2] = T2;//Asignando la referencia al heap a la variable erik
+
+	T3 = T2; //referencia al heap
+	Heap[T3] = 0; //Valor por defecto de erik.index
+	T3 = T3 + 1; //Aumenta el puntero de referencia al heap
+	
+	Heap[T3] = 0; //Valor por defecto false de erik.mayor
+	T3 = T3 + 1; //Aumenta el puntero de referencia al heap
+
+	T1 = Stack[2]; //referencia al heap del struct erik
+	T0 = T1 + 0; //El primer atributo esta en T1 + 0
+	Heap[T0] = 5; //Asignando el valor 5 a erik.index
+
+	T3 = Stack[2]; //referencia al heap del struct erik
+	T2 = T3 + 1; //El segundo atributo esta en T1 + 1
+	Heap[T2] = 1; //Asignando true a erik.mayor
+
+	T1 = h;
+	Heap[h] = 73;
+	h = h + 1;
+	Heap[h] = 110;
+	h = h + 1;
+	Heap[h] = 100;
+	h = h + 1;
+	Heap[h] = 101;
+	h = h + 1;
+	Heap[h] = 120;
+	h = h + 1;
+	Heap[h] = 58;
+	h = h + 1;
+	Heap[h] = 32;
+	h = h + 1;
+	Heap[h] = 36;
+	h = h + 1;
+	T0 = Stack[2];
+	T3 = T0 + 0;
+	T2 = Heap[T3];
+	T4 = p + 3;
+	T5 = T4 + 1;
+	Stack[T5] = T1;
+	T5 = T4 + 2;
+	Stack[T5] = T2;
+	p = p + 3;
+	call Native_Concat_String_Integer();
+	T6 = p + 0;
+	T0 = Stack[T6];
+	p = p - 3;
+	T1 = p + 3;
+	Stack[T1] = T0;
+	p = p + 3;
+	call Native_PrintString();
+	p = p - 3;
+	print(%c,10);
+	T2 = h;
+	Heap[h] = 77;
+	h = h + 1;
+	Heap[h] = 97;
+	h = h + 1;
+	Heap[h] = 121;
+	h = h + 1;
+	Heap[h] = 111;
+	h = h + 1;
+	Heap[h] = 114;
+	h = h + 1;
+	Heap[h] = 58;
+	h = h + 1;
+	Heap[h] = 32;
+	h = h + 1;
+	Heap[h] = 36;
+	h = h + 1;
+	T3 = Stack[2];
+	T4 = T3 + 1;
+	T5 = Heap[T4];
+	T0 = p + 3;
+	T1 = T0 + 1;
+	Stack[T1] = T2;
+	T1 = T0 + 2;
+	Stack[T1] = T5;
+	p = p + 3;
+	call Native_Concat_String_Boolean();
+	T3 = p + 0;
+	T6 = Stack[T3];
+	p = p - 3;
+	T2 = p + 3;
+	Stack[T2] = T6;
+	p = p + 3;
+	call Native_PrintString();
+	p = p - 3;
+	print(%c,10);
+	L0:
+}
+void Native_Concat_String_Boolean(){
+	T7 = h;
+	T8 = p + 1;
+	T9 = Stack[T8];
+	T10 = Heap[T9];
+	L5:
+	if (T10 == 36) goto L6;
+	Heap[h] = T10;
+	h = h + 1;
+	T9 = T9 + 1;
+	T10 = Heap[T9];
+	goto L5;
+	L6:
+	T8 = p + 2;
+	T9 = Stack[T8];
+	if (T9 == 1) goto L7;
+	Heap[h] = 70;
+	h = h + 1;
+	Heap[h] = 97;
+	h = h + 1;
+	Heap[h] = 108;
+	h = h + 1;
+	Heap[h] = 115;
+	h = h + 1;
+	Heap[h] = 101;
+	h = h + 1;
+	goto L8;
+	L7:
+	Heap[h] = 84;
+	h = h + 1;
+	Heap[h] = 114;
+	h = h + 1;
+	Heap[h] = 117;
+	h = h + 1;
+	Heap[h] = 101;
+	h = h + 1;
+	L8:
+	Heap[h] = 36;
+	h = h + 1;
+	Stack[p] = T7;
+}
+void Native_PrintString(){
+	T7 = p + 0;
+	T8 = Stack[T7];
+	if (T8 != -1) goto L17;
+	print(%c,78);
+	print(%c,73);
+	print(%c,76);
+	goto L19;
+	L17:
+	T9 = Heap[T8];
+	L18:
+	if (T9 == 36) goto L19;
+	print(%c,T9);
+	T8 = T8 + 1;
+	T9 = Heap[T8];
+	goto L18;
+	L19:
+}
+void Native_Concat_String_Integer(){
+	T7 = h;
+	T12 = 0;
+	T8 = p + 1;
+	T9 = Stack[T8];
+	T10 = Heap[T9];
+	L34:
+	if (T10 == 36) goto L35;
+	Heap[h] = T10;
+	h = h + 1;
+	T9 = T9 + 1;
+	T10 = Heap[T9];
+	goto L34;
+	L35:
+	T8 = p + 2;
+	T9 = Stack[T8];
+	T8 = 0;
+	if (T9 != 0) goto L37;
+	T12 = T12 + 1;
+	L37:
+	if (T9 >= 0) goto L36;
+	T9 = -1 * T9;
+	Heap[h] = 45;
+	h = h + 1;
+	L36:
+	if (T9 <= 0) goto L38;
+	T8 = T8 * 10;
+	T10 = T9 % 10;
+	T8 = T8 + T10;
+	T9 = T9 / 10;
+	T11 = T9 % 1;
+	T9 = T9 - T11;
+	T12 = T12 + 1;
+	goto L36;
+	L38:
+	if (T12 == 0) goto L39;
+	T9 = T8 % 10;
+	T8 = T8 / 10;
+	T11 = T8 % 1;
+	T8 = T8 - T11;
+	T12 = T12 - 1;
+	T10 = T9 + 48;
+	Heap[h] = T10;
+	h = h + 1;
+	goto L38;
+	L39:
+	Heap[h] = 36;
+	h = h + 1;
+	Stack[p] = T7;
+}
+void Native_Malloc(){
+	T4 = p + 2;
+	T0 = Stack[T4];
+	T4 = h;
+	L62:
+	if (T0 <= 0) goto L63;
+	h = h + 1;
+	T0 = T0 - 1;
+	goto L62;
+	L63:
+	Stack[p] = T4;
+}

@@ -1,0 +1,34 @@
+call MAIN();
+void zzz_fun1_INTEGER(){
+	Stack[p] = -1; //El valor de retorno por defecto es -1
+
+	T1 = p + 0;
+	Stack[T1] = 0; //Valor por defecto de entero es 0
+
+	T0 = p + 2; //posicion donde se almacena la variable que se paso por parametro
+	T1 = Stack[T0]; //Valor de esa variable
+
+	T0 = p + 0; //posicion 0 es donde se guarda el valor de retorno
+	Stack[T0] = T1; //retornamos el valor
+	L0:
+}
+void MAIN(){
+	Stack[0] = 0;
+	Stack[1] = 0;
+
+	T0 = p + 3; //Cambio virtual
+	Stack[T0] = p; //Pasando el this
+
+	T0 = T0 + 1; //Incrementa en 1 el cambio virtual
+	Stack[T0] = 30; //Pasa el parametro
+	T0 = T0 + 1; //Incrementa en 1 el cambio virtual
+
+	p = p + 2; //Cambio real
+	call zzz_fun1_INTEGER(); //Llamada a funcion
+	T1 = Stack[p]; //Valor de retorno
+	p = p - 2; //Regresando al ambito anterior
+
+	print(%e,T1);
+	print(%c,10);
+	L1:
+}
