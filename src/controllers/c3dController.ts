@@ -1,5 +1,4 @@
 import {Request,Response} from 'express';
-import Principal from '../c3d/principal';
 
 class C3dController{
 
@@ -12,10 +11,8 @@ class C3dController{
         const {text} = req.body;
         try{
             let interprete = parser.parse(text);
-            interprete.clear();
             interprete.ejecutar();
             res.json(interprete.report());
-    
         }
         catch(err){
             res.json({

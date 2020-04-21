@@ -78,7 +78,6 @@
 	const Begin = require('./Begin');
 	const EndMetodo = require('./EndMetodo');
 	const principal = require('./principal');
-	var interprete = new principal.default();
 %}
 
 %start init
@@ -87,8 +86,8 @@
 init
 	: instrucciones EOF 
     {
-		interprete.instrucciones = $1;
-		return interprete;
+		$$ = new principal.default($1);
+		return $$;
 	}
 ;
 
@@ -145,9 +144,9 @@ instruccion
 	{ 
 		$$ = $1; 
 	}
-	| Etiqueta TWO_POINTS	
+	| ETIQUETA TWO_POINTS	
 	{ 
-		$$ = new Label.default($1,@1.first_line);
+		$$ = new Label.default($1.replace('L','').replace('l') - 0,@1.first_line);
 	}
 	| COM					{ }
 ;
@@ -288,24 +287,9 @@ Term
 	}
 ;
 
-Etiqueta
-	: Etiqueta COMMA ETIQUETA 
-	{
-		interprete.label[$3.replace('L','').replace('l') - 0] = @3.first_line;
-		$$ = $1;
-		$$.push(@3.first_line);
-	}
-	| ETIQUETA 
-	{
-		interprete.label[$1.replace('L','').replace('l') - 0] = @1.first_line;
-		$$ = [@1.first_line];
-	}
-;
-
 Function
 	: VOID ID L_PARENT R_PARENT L_BRACE instrucciones R_BRACE
 	{
-		interprete.functions.set($2,@1.first_line);
 		$$ = new Begin.default($2,@7.first_line,$6,@1.first_line);
 	}
 ;

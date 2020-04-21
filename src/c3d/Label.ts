@@ -2,13 +2,13 @@ import { Instruccion } from "./Instruccion";
 import Principal from "./principal";
 
 export default class Label extends Instruccion{
-    public labelList : number[];
-    constructor(labelList : number[], linea : number){
+    public label : number;
+    constructor(label : number, linea : number){
         super(linea);
-        this.labelList = labelList;
+        this.label = label;
     }
 
     ejecutar(entorno: Principal): void {
-        entorno.actual = this.labelList[this.labelList.length - 1];
+        entorno.actual = this.linea;
     }
 }
