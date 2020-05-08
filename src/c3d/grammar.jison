@@ -10,10 +10,9 @@
 %%
 \s+											// se ignoran espacios en blanco
 [/][*][^*]*[*]+([^/*][^*]*[*]+)*[/]			// comentario multiple líneas
-"//".*					return 'COM';		// comentario simple línea
-
+'##'.*					return 'COM';		// comentario simple línea
 "=="					return 'EQU';
-"!="					return 'N_EQU';
+"<>"					return 'N_EQU';
 ">="					return 'GRT_EQ';
 "<="					return 'LSS_EQ';
 ">"					    return 'GRT';
@@ -36,7 +35,9 @@
 
 
 "goto"					return 'GO';
-"void"                  return "VOID";
+"proc"                  return "PROC";
+'begin'                 return 'BEGIN'
+'end'                   return 'END'
 "if"                    return "IF";
 
 "call"					return 'CALL';
@@ -48,9 +49,9 @@
 "heap"					return 'HEAP';
 "H"						return 'PTR_HEAP';
 
-"%c"					return 'VALCHAR';
-"%e"					return 'VALNUM';
-"%d"					return 'VALDEC';
+'"%c"' 					return 'VALCHAR';
+'"%i"'					return 'VALNUM';
+'"%d"' 					return 'VALDEC';
 
 "%"						return 'MOD';
 "-"?[0-9]+("."[0-9]+)?\b  	return 'DECIMAL';
@@ -243,7 +244,7 @@ OptionAsig
 ;
 
 LlamadaMetodo
-	: CALL ID L_PARENT R_PARENT SEMI
+	: CALL ID  SEMI
 	{
 		$$ = new Call.default($2,@1.first_line);
 	}
@@ -288,8 +289,12 @@ Term
 ;
 
 Function
-	: VOID ID L_PARENT R_PARENT L_BRACE instrucciones R_BRACE
+	: PROC ID BEGIN instrucciones END
 	{
-		$$ = new Begin.default($2,@7.first_line,$6,@1.first_line);
+		$$ = new Begin.default($2,@5.first_line,$4,@1.first_line);
+	}
+	|PROC ID BEGIN  END
+	{
+		$$ = new Begin.default($2,@5.first_line,[],@1.first_line);
 	}
 ;
